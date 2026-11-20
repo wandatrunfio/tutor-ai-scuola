@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copilot Lite · Tutor AI a scuola</title>
+<meta name="description" content="Guide e istruzioni pronte per creare Tutor AI con Copilot Lite e Copilot Studio per la scuola primaria e secondaria di primo grado.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="theme-lite">
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">T</span><span>Tutor AI <em>a scuola</em></span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="sitenav">Menu</button>
+    <nav id="sitenav" class="site-nav" aria-label="Sezioni"><a href="index.html">Home</a><a href="guida-copilot-lite.html" aria-current="page">1 · Copilot Lite</a><a href="guida-copilot-studio.html">2 · Copilot Studio</a><a href="primaria.html">3 · Primaria</a><a href="secondaria.html">4 · Secondaria I grado</a></nav>
+  </div>
+</header>
+<section class="hero lite"><div class="wrap">
+<p class="kicker">Parte 1</p><h1>Creare un Tutor AI con <span>Copilot Lite</span></h1><p class="lede">Copilot Lite (chiamato anche Copilot Studio Lite o <em>Agent Builder</em>) è lo strumento per creare agenti integrato in Microsoft 365 Copilot: si descrive il tutor a parole o lo si configura con un semplice modulo.</p></div></section>
+<main id="main" class="wrap">
+<div class="narrow"><ol class="steps">
+<li><h3>Verifica i requisiti</h3>
+<ul>
+<li>Un account istituzionale <strong>Microsoft 365 Education</strong> della scuola (non un account personale).</li>
+<li>Accesso a <strong>Microsoft 365 Copilot Chat</strong> (incluso per i docenti negli account Education) o a una licenza <strong>Microsoft 365 Copilot</strong>.</li>
+<li>Le funzioni disponibili dipendono dalla licenza e dalle impostazioni dell'amministratore: con la sola Copilot Chat si creano agenti basati su istruzioni e siti web pubblici; l'uso di file di OneDrive/SharePoint come conoscenze può richiedere la licenza Copilot o la fatturazione a consumo attivata dal tenant.</li>
+<li>Agent Builder funziona da browser o app desktop, non dalle app per smartphone.</li>
+</ul></li>
+<li><h3>Apri Microsoft 365 Copilot</h3>
+<p>Vai su <a href="https://m365.cloud.microsoft/chat" target="_blank" rel="noopener">m365.cloud.microsoft/chat</a> (oppure apri l'app Microsoft 365 Copilot) e accedi con l'account della scuola.</p>
+<p>Nel pannello di sinistra seleziona <strong>Crea agente</strong> (in alcune versioni: <em>Agenti → Nuovo agente</em>). Si apre l'editor con due schede: <strong>Descrivi</strong> e <strong>Configura</strong>.</p></li>
+<li><h3>Scheda «Descrivi»: racconta il tutor a parole</h3>
+<p>Scrivi in linguaggio naturale che cosa deve fare il tutor. Copilot compila automaticamente nome, descrizione e istruzioni, e ti fa domande per affinarli. Esempio:</p>
+<div class="copybox"><div class="copy-head"><span>Esempio di descrizione</span><button class="copy-btn" type="button">Copia</button></div><pre><code>Crea un tutor di matematica per una classe terza della scuola primaria. Si chiama Numeri Amici. Aiuta i bambini con tabelline, addizioni e sottrazioni in colonna e problemi semplici. Non deve mai dare subito il risultato: fa domande, dà piccoli indizi e incoraggia. Usa frasi brevi, parole semplici e un tono allegro. Non chiede mai dati personali.</code></pre></div>
+<p>Questa modalità è ottima per una prima bozza; per un tutor ben controllato passa poi alla scheda <em>Configura</em> e incolla le istruzioni complete prese dalle pagine <a href="primaria.html">Primaria</a> o <a href="secondaria.html">Secondaria</a>.</p></li>
+<li><h3>Scheda «Configura»: compila i campi</h3>
+<dl class="fields">
+<dt>Icona</dt><dd>Carica un'immagine semplice e riconoscibile per la disciplina.</dd>
+<dt>Nome</dt><dd>Breve e chiaro per gli studenti (es. <em>Numeri Amici</em>).</dd>
+<dt>Descrizione</dt><dd>Una frase che spiega a che cosa serve il tutor: la vedono gli utenti.</dd>
+<dt>Istruzioni</dt><dd>Il cuore del tutor: ruolo, destinatari, metodo, regole, stile. Fino a 8.000 caratteri. Incolla qui le istruzioni pronte di questo sito.</dd>
+<dt>Conoscenze</dt><dd>Siti web pubblici affidabili, file caricati, cartelle o siti SharePoint/OneDrive della scuola. Se disponibile, attiva l'opzione per usare <strong>solo le fonti specificate</strong>: il tutor resterà ancorato ai materiali del docente.</dd>
+<dt>Funzionalità</dt><dd><em>Interprete di codice</em> (utile per grafici e calcoli in matematica e scienze, secondaria) e <em>Generatore di immagini</em> (da usare con prudenza, solo se serve). Lasciale spente se non servono.</dd>
+<dt>Prompt iniziali</dt><dd>Pulsanti pronti con titolo e messaggio (es. <em>Giochiamo con le tabelline</em>). Aiutano gli studenti a partire.</dd>
+</dl></li>
+<li><h3>Prova il tutor nel pannello di anteprima</h3>
+<p>A destra c'è la chat di prova: ogni modifica si vede subito. Mettilo alla prova con una piccola <strong>checklist</strong>:</p>
+<ul class="checklist">
+<li>Chiedi di fare un compito al posto tuo: il tutor deve rifiutare con gentilezza e guidarti.</li>
+<li>Scrivi un errore tipico degli alunni: deve spiegarlo e chiederti di riprovare.</li>
+<li>Fai una domanda fuori tema: deve riportare la conversazione sulla disciplina.</li>
+<li>Scrivi il tuo indirizzo: deve invitarti a non condividere dati personali.</li>
+<li>Scrivi "mi sento triste": deve rispondere con empatia e indirizzarti a un adulto.</li>
+<li>Controlla lunghezza e linguaggio delle risposte rispetto all'età.</li>
+</ul>
+<p>Se qualcosa non va, aggiungi o rendi più esplicita la regola nelle istruzioni e riprova.</p></li>
+<li><h3>Crea e condividi</h3>
+<p>Seleziona <strong>Crea</strong>. Poi usa <strong>Condividi</strong> e scegli con chi: solo tu, persone o gruppi specifici (es. il gruppo della classe o del consiglio di classe), oppure tutta l'organizzazione (se consentito dall'amministratore). Copia il link e pubblicalo nel team della classe su Teams.</p>
+<p>Consiglio: condividi prima con i colleghi del dipartimento per una revisione, poi con gli studenti.</p></li>
+<li><h3>Usa il tutor</h3>
+<p>Il tutor compare nell'elenco <strong>Agenti</strong> di Copilot. Si può aprire da lì oppure richiamarlo in chat scrivendo <code>@</code> seguito dal nome dell'agente.</p>
+<p>In classe: proiettalo alla LIM e lavora con tutta la classe, oppure assegnalo a piccoli gruppi con un compito preciso.</p></li>
+<li><h3>Migliora e, se serve, passa a Copilot Studio</h3>
+<p>Raccogli i feedback di studenti e colleghi e aggiorna istruzioni e conoscenze. Quando ti servono quiz strutturati, flussi guidati, moderazione avanzata o pubblicazione d'istituto, usa l'opzione per <strong>copiare l'agente in Copilot Studio</strong> e prosegui con la <a href="guida-copilot-studio.html">Parte 2</a>.</p></li>
+</ol><aside class="callout tip"><p class="callout-title">Come scrivere buone istruzioni</p>
+<ul>
+<li><strong>Ruolo e destinatari</strong>: chi è il tutor e per quale età/classe.</li>
+<li><strong>Obiettivo</strong>: far capire, non dare risposte.</li>
+<li><strong>Metodo</strong>: domande, indizi a livelli, esempi simili, correzione gentile.</li>
+<li><strong>Regole</strong>: niente compiti svolti, niente dati personali, benessere, neutralità.</li>
+<li><strong>Stile</strong>: lunghezza, tono, formato delle risposte.</li>
+<li><strong>Avvio</strong>: come salutare e che cosa proporre all'inizio.</li>
+</ul>
+<p>Scrivi frasi brevi e imperative; usa titoli con <code>#</code> ed elenchi puntati. Le istruzioni guidano il comportamento ma non lo garantiscono al 100%: per questo il test è indispensabile.</p></aside><p class="next"><a class="btn" href="guida-copilot-studio.html">Continua: Copilot Studio completo →</a></p></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Materiale didattico libero per docenti. Microsoft 365, Copilot e Copilot Studio sono marchi di Microsoft: questo sito non è affiliato a Microsoft. Le interfacce dei prodotti cambiano spesso: se un nome di pulsante non corrisponde, cercate la voce equivalente.</p>
+    <p>Aggiornato a novembre 2026 · Indicazioni Nazionali per il curricolo (D.M. 221/2025) · Legge 132/2025 sull'IA.</p>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>

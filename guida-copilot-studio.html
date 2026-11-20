@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copilot Studio · Tutor AI a scuola</title>
+<meta name="description" content="Guide e istruzioni pronte per creare Tutor AI con Copilot Lite e Copilot Studio per la scuola primaria e secondaria di primo grado.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body class="theme-studio">
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">T</span><span>Tutor AI <em>a scuola</em></span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="sitenav">Menu</button>
+    <nav id="sitenav" class="site-nav" aria-label="Sezioni"><a href="index.html">Home</a><a href="guida-copilot-lite.html">1 · Copilot Lite</a><a href="guida-copilot-studio.html" aria-current="page">2 · Copilot Studio</a><a href="primaria.html">3 · Primaria</a><a href="secondaria.html">4 · Secondaria I grado</a></nav>
+  </div>
+</header>
+<section class="hero studio"><div class="wrap">
+<p class="kicker">Parte 2</p><h1>Creare un Tutor AI con <span>Copilot Studio</span> completo</h1><p class="lede">Copilot Studio è l'ambiente completo di Microsoft per costruire agenti: oltre a istruzioni e conoscenze permette flussi di dialogo guidati (argomenti), strumenti, scelta del modello, moderazione, autenticazione e pubblicazione su Teams.</p></div></section>
+<main id="main" class="wrap">
+<div class="narrow"><ol class="steps">
+<li><h3>Verifica licenze e ambiente</h3>
+<ul>
+<li>Serve un account Microsoft 365 della scuola con accesso a <strong>Copilot Studio</strong> (licenza Copilot Studio, capacità a consumo o licenza Microsoft 365 Copilot, secondo gli accordi del tenant). Con la licenza di prova si possono creare e provare gli agenti ma <strong>non pubblicarli</strong>.</li>
+<li>Chiedi all'amministratore IT in quale <strong>ambiente</strong> Power Platform lavorare: meglio un ambiente dedicato alla didattica, separato da quello amministrativo.</li>
+<li>Concorda con Dirigente e DPO la policy: chi crea agenti, con chi si condividono, quali dati si possono usare.</li>
+</ul></li>
+<li><h3>Crea un nuovo agente</h3>
+<p>Vai su <a href="https://copilotstudio.microsoft.com" target="_blank" rel="noopener">copilotstudio.microsoft.com</a> e accedi. In alternativa puoi usare l'app Copilot Studio in Microsoft Teams. Se hai creato il tutor con Copilot Lite, puoi copiarlo da lì invece di ripartire da zero.</p>
+<p>Seleziona <strong>Agenti → Crea agente</strong> (o <em>+ Nuovo agente</em>). Puoi descriverlo a parole, come in Lite, oppure scegliere di passare direttamente alla <strong>configurazione</strong>.</p></li>
+<li><h3>Imposta i dati di base e le istruzioni</h3>
+<dl class="fields">
+<dt>Nome, icona, descrizione</dt><dd>Come in Lite: copiali dalle schede disciplinari.</dd>
+<dt>Istruzioni</dt><dd>Incolla le istruzioni complete (fino a 8.000 caratteri) e sostituisci i campi tra parentesi quadre.</dd>
+<dt>Modello AI</dt><dd>Nelle impostazioni dell'agente puoi scegliere il modello di linguaggio tra quelli abilitati nel tenant. Per un tutor va bene il modello predefinito; prova eventuali alternative solo dopo aver testato.</dd>
+<dt>Lingua</dt><dd>Imposta l'italiano come lingua principale.</dd>
+</dl></li>
+<li><h3>Aggiungi le conoscenze</h3>
+<p>Nella sezione <strong>Conoscenze → Aggiungi conoscenza</strong> puoi collegare:</p>
+<ul>
+<li><strong>File caricati</strong>: schede, programmazioni, glossari (PDF, Word, PowerPoint).</li>
+<li><strong>SharePoint/OneDrive</strong>: la cartella della disciplina gestita dal dipartimento.</li>
+<li><strong>Siti web pubblici</strong>: siti istituzionali e affidabili (es. Treccani, INVALSI, siti dei musei).</li>
+</ul>
+<p>Nelle impostazioni dell'<strong>IA generativa</strong> valuta se disattivare l'uso delle <em>conoscenze generali</em> del modello, così il tutor risponde solo con le fonti scelte. Per i tutor disciplinari una buona via di mezzo è lasciarle attive ma scrivere nelle istruzioni che i materiali del docente hanno la precedenza.</p>
+<p>L'indicizzazione delle fonti può richiedere alcuni minuti.</p></li>
+<li><h3>Crea argomenti (topic) per i momenti chiave</h3>
+<p>Gli <strong>argomenti</strong> sono flussi di conversazione guidati che si attivano quando lo studente chiede qualcosa di specifico. Vai in <strong>Argomenti → + Aggiungi un argomento → Aggiungi da descrizione con Copilot</strong> e incolla una descrizione come quelle qui sotto. Copilot Studio genera i nodi (messaggi, domande, variabili, condizioni) che puoi poi modificare nell'editor grafico.</p>
+<p>Tre argomenti utili per ogni tutor:</p>
+<div class="copybox"><div class="copy-head"><span>Argomento 1 · Quiz</span><button class="copy-btn" type="button">Copia</button></div><pre><code>Nome dell&#x27;argomento: Quiz di ripasso
+
+Crea un argomento che si attiva quando lo studente chiede un quiz, un ripasso o una verifica di allenamento.
+1. Chiedi su quale argomento vuole esercitarsi (salva la risposta nella variabile Argomento).
+2. Chiedi il livello: facile, medio o difficile (variabile Livello).
+3. Proponi 5 domande a scelta multipla, una alla volta, sull&#x27;Argomento e al Livello scelti.
+4. Dopo ogni risposta dai un feedback breve: se è corretta, conferma e spiega perché; se è sbagliata, spiega l&#x27;errore senza giudicare.
+5. Alla fine comunica il punteggio su 5 e suggerisci che cosa ripassare.</code></pre></div>
+<div class="copybox"><div class="copy-head"><span>Argomento 2 · Compiti</span><button class="copy-btn" type="button">Copia</button></div><pre><code>Nome dell&#x27;argomento: Richiesta di svolgere i compiti
+
+Crea un argomento che si attiva quando lo studente chiede di fare i compiti al posto suo, di scrivere un tema, di dare le soluzioni o di risolvere una verifica.
+1. Rispondi con gentilezza che il tuo ruolo è aiutarlo a imparare, non fare il lavoro al posto suo.
+2. Chiedi di incollare la consegna e di dire che cosa ha già provato.
+3. Proponi il primo passo con una domanda-guida.
+4. Ricorda che può chiedere un indizio in più in qualsiasi momento.</code></pre></div>
+<div class="copybox"><div class="copy-head"><span>Argomento 3 · Benessere</span><button class="copy-btn" type="button">Copia</button></div><pre><code>Nome dell&#x27;argomento: Benessere e richiesta di aiuto
+
+Crea un argomento che si attiva quando lo studente esprime tristezza, paura, ansia, solitudine, parla di prepotenze, bullismo, cyberbullismo o di situazioni di pericolo.
+1. Rispondi con empatia, in modo semplice e calmo, senza giudicare.
+2. Di&#x27; chiaramente che è importante parlarne subito con un adulto di fiducia: l&#x27;insegnante, un genitore, il referente per il bullismo della scuola.
+3. Se la persona parla di un pericolo immediato, invita a chiedere aiuto subito a un adulto vicino e a chiamare il 112.
+4. Ricorda che può contattare anche il Telefono Azzurro (19696).
+5. Non proseguire con la lezione in questo messaggio.</code></pre></div>
+<p>Personalizza anche gli argomenti di sistema: <em>Inizio conversazione</em> (messaggio di benvenuto adatto all'età) e <em>Fallback</em> (cosa dire quando il tutor non capisce). Ogni scheda disciplinare propone altri argomenti specifici.</p></li>
+<li><h3>Aggiungi prompt suggeriti e, se servono, strumenti</h3>
+<p><strong>Prompt suggeriti</strong>: aggiungi i prompt iniziali della scheda disciplinare; compaiono come pulsanti in Teams e in Copilot.</p>
+<p><strong>Strumenti</strong> (facoltativi, per utenti esperti): ad esempio un <em>prompt</em> riutilizzabile che genera esercizi graduati, oppure un flusso Power Automate che salva in un elenco SharePoint gli argomenti più richiesti (senza dati personali) per aiutare il docente a programmare il ripasso.</p></li>
+<li><h3>Configura sicurezza e moderazione</h3>
+<ul>
+<li><strong>Autenticazione</strong>: in <em>Impostazioni → Sicurezza → Autenticazione</em> scegli l'autenticazione con Microsoft (Entra ID), così solo gli account della scuola possono usare il tutor.</li>
+<li><strong>Moderazione dei contenuti</strong>: nelle impostazioni dell'IA generativa imposta il livello di moderazione più alto disponibile.</li>
+<li><strong>Canali</strong>: pubblica solo nei canali interni (Teams e Microsoft 365 Copilot). Evita il sito web demo con gli studenti.</li>
+<li><strong>Condivisione</strong>: concedi l'uso a gruppi precisi (classi, dipartimenti), non a tutti.</li>
+</ul></li>
+<li><h3>Testa a fondo</h3>
+<p>Usa il pannello <strong>Testa l'agente</strong>. Oltre alla checklist della <a href="guida-copilot-lite.html">Parte 1</a>, verifica che ogni argomento si attivi con frasi diverse (es. "fammi un quiz", "voglio esercitarmi", "interrogami"). Con la <em>mappa delle attività</em> puoi vedere quali fonti e quali argomenti ha usato il tutor per rispondere.</p>
+<p>Coinvolgi un collega e, se possibile, un piccolo gruppo di studenti in una sessione di prova supervisionata.</p></li>
+<li><h3>Pubblica e distribuisci in Teams</h3>
+<p>Seleziona <strong>Pubblica</strong>. Poi in <strong>Canali</strong> scegli <strong>Teams e Microsoft 365 Copilot</strong> e attiva il canale. Puoi:</p>
+<ul>
+<li>condividere il link di installazione con la classe;</li>
+<li>aggiungere il tutor al team della classe;</li>
+<li>chiedere all'amministratore di approvarlo e renderlo disponibile nel catalogo dell'istituto.</li>
+</ul>
+<p>Ogni volta che modifichi l'agente, ricordati di <strong>pubblicare di nuovo</strong>.</p></li>
+<li><h3>Monitora e migliora</h3>
+<p>Nella sezione <strong>Analisi</strong> trovi dati aggregati: numero di sessioni, argomenti più usati, domande senza risposta, soddisfazione. Usali per migliorare istruzioni, conoscenze e argomenti, e per capire su quali contenuti la classe ha più bisogno di ripasso.</p></li>
+</ol><aside class="callout warn"><p class="callout-title">Governance d'istituto (consigliata)</p>
+<ul>
+<li>Un <strong>registro dei tutor</strong>: nome, disciplina, classi, docente responsabile, data dell'ultima revisione.</li>
+<li>Una <strong>revisione</strong> da parte del dipartimento prima della pubblicazione.</li>
+<li>Una sezione del <strong>regolamento d'istituto</strong> sull'uso dell'IA, con informativa e consenso delle famiglie per i minori di 14 anni (Legge 132/2025).</li>
+<li>Il coinvolgimento del <strong>DPO</strong> per la valutazione d'impatto sulla protezione dei dati.</li>
+</ul></aside><p class="next"><a class="btn" href="primaria.html">Continua: i tutor per la primaria →</a></p></div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Materiale didattico libero per docenti. Microsoft 365, Copilot e Copilot Studio sono marchi di Microsoft: questo sito non è affiliato a Microsoft. Le interfacce dei prodotti cambiano spesso: se un nome di pulsante non corrisponde, cercate la voce equivalente.</p>
+    <p>Aggiornato a novembre 2026 · Indicazioni Nazionali per il curricolo (D.M. 221/2025) · Legge 132/2025 sull'IA.</p>
+  </div>
+</footer>
+<script src="assets/app.js"></script>
+</body>
+</html>
