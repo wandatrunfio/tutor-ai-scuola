@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Per il docente · Tutor AI a scuola</title>
+<meta name="description" content="Guide e istruzioni pronte per creare Tutor AI con Copilot Lite e Copilot Studio per la scuola primaria e secondaria di primo grado.">
+<style>
+:root{
+  --paper:#f8f5ef; --paper-2:#efe9de; --ink:#1d2733; --ink-2:#4a5562; --line:#ddd4c4;
+  --accent:#b4471c; --accent-soft:#f6e3d8;
+  --lite:#0f766e; --lite-soft:#dcefeb;
+  --studio:#3f3ca8; --studio-soft:#e3e2f6;
+  --prim:#c2410c; --prim-soft:#fbe5d6;
+  --sec:#1e4f9a; --sec-soft:#dde7f6;
+  --doc:#7a3e6b; --doc-soft:#f1e1ec;
+  --code:#1f2530; --radius:14px;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Code","SF Mono",Menlo,Consolas,monospace;
+}
+.theme-lite{--accent:var(--lite);--accent-soft:var(--lite-soft)}
+.theme-studio{--accent:var(--studio);--accent-soft:var(--studio-soft)}
+.theme-primaria{--accent:var(--prim);--accent-soft:var(--prim-soft)}
+.theme-secondaria{--accent:var(--sec);--accent-soft:var(--sec-soft)}
+.theme-docente{--accent:var(--doc);--accent-soft:var(--doc-soft)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:3px}
+code{font-family:var(--mono);font-size:.88em;background:var(--paper-2);padding:.1em .35em;border-radius:5px}
+h1,h2,h3{font-family:var(--serif);line-height:1.2;color:var(--ink);font-weight:600}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:99}
+.muted{color:var(--ink-2);font-weight:400}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:20;background:rgba(248,245,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.header-inner{display:flex;align-items:center;gap:20px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);font-family:var(--serif);font-size:1.15rem;font-weight:600;margin-right:auto}
+.brand em{font-style:italic;color:var(--accent)}
+.brand-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:var(--ink);color:var(--paper);font-size:1.1rem}
+.site-nav{display:flex;gap:4px;flex-wrap:wrap}
+.site-nav a{padding:8px 12px;border-radius:999px;text-decoration:none;color:var(--ink-2);font-size:.93rem;font-weight:500}
+.site-nav a:hover{background:var(--paper-2);color:var(--ink)}
+.site-nav a[aria-current=page]{background:var(--ink);color:var(--paper)}
+.menu-btn{display:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-size:.9rem}
+
+/* hero */
+.hero{border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--accent-soft),var(--paper));padding:64px 0 52px}
+.kicker{text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;font-weight:700;color:var(--accent);margin:0 0 10px}
+.hero h1{font-size:clamp(2rem,4.6vw,3.3rem);margin:0 0 16px;max-width:20ch;letter-spacing:-.01em}
+.hero h1 span{color:var(--accent);font-style:italic}
+.lede{font-size:1.18rem;color:var(--ink-2);max-width:62ch;margin:0}
+
+main.wrap{padding-top:48px;padding-bottom:72px}
+.narrow{max-width:860px}
+.section-title{font-size:1.75rem;margin:64px 0 18px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px 22px;text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px -14px rgba(29,39,51,.35)}
+.card h2{font-size:1.35rem;margin:14px 0 8px}
+.card p{color:var(--ink-2);margin:0 0 18px;font-size:.98rem}
+.card-num{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;font-family:var(--serif);font-weight:700;font-size:1.1rem;color:#fff}
+.card-go{margin-top:auto;font-weight:600;font-size:.92rem}
+.card-lite .card-num{background:var(--lite)}.card-lite .card-go{color:var(--lite)}
+.card-studio .card-num{background:var(--studio)}.card-studio .card-go{color:var(--studio)}
+.card-primaria .card-num{background:var(--prim)}.card-primaria .card-go{color:var(--prim)}
+.card-secondaria .card-num{background:var(--sec)}.card-secondaria .card-go{color:var(--sec)}
+.card-docente .card-num{background:var(--doc)}.card-docente .card-go{color:var(--doc)}
+
+/* table */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.compare{width:100%;border-collapse:collapse;font-size:.96rem}
+.compare th,.compare td{padding:14px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.compare thead th{background:var(--paper-2);font-family:var(--serif);font-size:1.05rem}
+.compare thead th small{display:block;font-family:var(--sans);font-weight:400;color:var(--ink-2);font-size:.8rem}
+.compare tbody th{width:18%;color:var(--ink-2);font-weight:600}
+.compare tr:last-child>*{border-bottom:0}
+
+/* rules */
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.rules div{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.rules b{font-family:var(--serif);font-size:1.6rem;color:var(--accent)}
+.rules h3{margin:4px 0 6px;font-size:1.1rem}
+.rules p{margin:0;color:var(--ink-2);font-size:.95rem}
+
+/* callouts */
+.callout{border-radius:var(--radius);padding:18px 22px;margin:28px 0;border:1px solid var(--line);background:#fff;border-left:5px solid var(--accent)}
+.callout.warn{border-left-color:#b7791f;background:#fdf8ec}
+.callout.info{border-left-color:var(--accent);background:var(--accent-soft)}
+.callout.tip{border-left-color:var(--accent)}
+.callout-title{font-family:var(--serif);font-weight:700;font-size:1.12rem;margin:0 0 6px}
+.callout p:last-child,.callout ul:last-child,.callout ol:last-child{margin-bottom:0}
+
+/* steps */
+.steps{list-style:none;counter-reset:s;padding:0;margin:0}
+.steps>li{counter-increment:s;position:relative;padding:0 0 34px 68px;border-left:2px solid var(--line);margin-left:22px}
+.steps>li:last-child{border-left-color:transparent}
+.steps>li::before{content:counter(s);position:absolute;left:-23px;top:-4px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:1.15rem;box-shadow:0 0 0 6px var(--paper)}
+.steps h3{margin:4px 0 10px;font-size:1.35rem}
+.fields{margin:0;display:grid;grid-template-columns:minmax(120px,190px) 1fr;gap:10px 18px}
+.fields dt{font-weight:700}.fields dd{margin:0;color:var(--ink-2)}
+.checklist{list-style:none;padding:0}
+.checklist li{padding-left:28px;position:relative;margin:6px 0}
+.checklist li::before{content:"";position:absolute;left:0;top:.35em;width:16px;height:16px;border:2px solid var(--accent);border-radius:4px}
+
+/* copy box */
+.copybox{background:var(--code);border-radius:12px;margin:12px 0 18px;overflow:hidden}
+.copy-head{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 8px 16px;background:rgba(255,255,255,.06);color:#aeb7c4;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase}
+.copy-btn{font:inherit;text-transform:none;letter-spacing:0;font-size:.85rem;font-weight:600;border:0;border-radius:8px;padding:6px 12px;background:#fff;color:var(--code);cursor:pointer}
+.copy-btn:hover{background:var(--accent-soft)}
+.copy-btn.done{background:#bde5c8}
+.copybox pre{margin:0;padding:16px;max-height:420px;overflow:auto;white-space:pre-wrap;word-break:break-word}
+.copybox code{background:none;padding:0;color:#e9edf2;font-size:.86rem;line-height:1.55}
+
+/* tutor pages */
+.layout{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:start}
+.toc{position:sticky;top:84px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px;max-height:calc(100vh - 110px);overflow:auto}
+.toc-title{font-family:var(--serif);font-weight:700;margin:0 0 8px}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc a{display:flex;align-items:center;gap:10px;padding:6px 8px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:.93rem}
+.toc a:hover{background:var(--accent-soft)}
+.content>.callout:first-child{margin-top:0}
+.badge{flex:none;display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--accent);color:#fff;font-family:var(--serif);font-weight:700;font-size:1.25rem}
+.badge.sm{width:28px;height:28px;border-radius:8px;font-size:.78rem}
+.tutor{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px;margin:0 0 30px}
+.tutor-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:18px}
+.tutor-subj{margin:0;text-transform:uppercase;letter-spacing:.1em;font-size:.76rem;font-weight:700;color:var(--accent)}
+.tutor h2{margin:2px 0 6px;font-size:1.8rem}
+.tutor-desc{margin:0;color:var(--ink-2)}
+.tutor-grid{display:grid;grid-template-columns:1fr 2fr;gap:16px}
+.field-label{font-weight:700;margin:8px 0 0;font-size:.95rem}
+.tutor-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:8px}
+.tutor h3{font-size:1.1rem;margin:16px 0 8px}
+.starters{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.starters li{background:var(--accent-soft);border-radius:10px;padding:10px 14px;display:flex;flex-direction:column}
+.starters span{color:var(--ink-2);font-size:.93rem}
+.plain{padding-left:20px;margin:0}.plain li{margin:4px 0;color:var(--ink-2)}
+details{margin-top:12px}summary{cursor:pointer;font-weight:600;color:var(--accent);font-size:.93rem}
+.backtop{margin:18px 0 0;font-size:.88rem;text-align:right}.backtop a{text-decoration:none}
+.next{margin-top:40px}
+.btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;padding:12px 22px;border-radius:999px}
+.btn:hover{filter:brightness(1.08)}
+
+.site-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--ink-2);font-size:.88rem;background:var(--paper-2)}
+
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .toc{position:static;max-height:none}
+  .toc ul{display:flex;flex-wrap:wrap;gap:4px}
+  .tutor-grid,.tutor-cols{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .menu-btn{display:block}
+  .site-nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:10px 16px;flex-direction:column}
+  .site-nav.open{display:flex}
+  .tutor{padding:20px}
+  .steps>li{padding-left:44px;margin-left:18px}
+  .fields{grid-template-columns:1fr}
+}
+@media print{
+  .site-header,.toc,.copy-btn,.backtop,.next,.menu-btn{display:none}
+  .copybox{background:#fff;border:1px solid #999}.copybox code{color:#000}
+  .copybox pre{max-height:none}
+  .tutor{break-inside:avoid-page}
+}
+</style>
+</head>
+<body class="theme-docente">
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">T</span><span>Tutor AI <em>a scuola</em></span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="sitenav">Menu</button>
+    <nav id="sitenav" class="site-nav" aria-label="Sezioni"><a href="index.html">Home</a><a href="guida-copilot-lite.html">1 · Copilot Lite</a><a href="guida-copilot-studio.html">2 · Copilot Studio</a><a href="primaria.html">3 · Primaria</a><a href="secondaria.html">4 · Secondaria I grado</a><a href="docente.html" aria-current="page">5 · Per il docente</a></nav>
+  </div>
+</header>
+<section class="hero "><div class="wrap">
+<p class="kicker">Parte 5</p><h1>L'<span>Assistente del Docente</span></h1><p class="lede">Un tutor pensato per chi insegna: progetta lezioni e UDA, prepara verifiche con soluzioni, versioni facilitate e griglie di valutazione. Si crea con Copilot Lite o Copilot Studio, come i tutor per gli studenti.</p></div></section>
+<main id="main" class="wrap">
+<div class="narrow">
+<aside class="callout info"><p class="callout-title">Uso riservato ai docenti</p><p>Condividete questo agente solo con docenti (ad esempio il gruppo del dipartimento o del consiglio di classe), non con gli studenti. Non inserite mai dati personali degli alunni: nomi, diagnosi, situazioni familiari, voti.</p><p>Gli account Education possono avere a disposizione anche gli agenti di Microsoft dedicati alla didattica, come <em>Teach</em>: questo assistente si può usare insieme a quelli, con le regole e il curricolo della vostra scuola.</p></aside>
+<section class="tutor" id="docente">
+  <header class="tutor-head">
+    <span class="badge" aria-hidden="true">Do</span>
+    <div><p class="tutor-subj">Per il docente</p><h2>Assistente del Docente</h2>
+    <p class="tutor-desc">Assistente per docenti di primaria e secondaria di I grado: progetta lezioni e UDA, prepara verifiche, griglie di valutazione e materiali personalizzati.</p></div>
+  </header>
+  <div class="tutor-grid">
+    <div class="field"><p class="field-label">Nome dell'agente</p><div class="copybox"><div class="copy-head"><span>Nome</span><button class="copy-btn" type="button">Copia</button></div><pre><code>Assistente del Docente</code></pre></div></div>
+    <div class="field"><p class="field-label">Descrizione</p><div class="copybox"><div class="copy-head"><span>Descrizione</span><button class="copy-btn" type="button">Copia</button></div><pre><code>Assistente per docenti di primaria e secondaria di I grado: progetta lezioni e UDA, prepara verifiche, griglie di valutazione e materiali personalizzati.</code></pre></div></div>
+  </div>
+  <div class="field">
+    <p class="field-label">Istruzioni <span class="muted">(5.035 caratteri su 8.000 disponibili · sostituite i campi tra parentesi quadre)</span></p>
+    <div class="copybox"><div class="copy-head"><span>Istruzioni</span><button class="copy-btn" type="button">Copia le istruzioni</button></div><pre><code># Ruolo
+Sei «Assistente del Docente», un collaboratore esperto di didattica per insegnanti della scuola primaria e della secondaria di primo grado in Italia. Lavori per: [NOME DELLA SCUOLA o &quot;il docente&quot;], disciplina principale: [DISCIPLINA], ordine di scuola: [PRIMARIA / SECONDARIA DI I GRADO].
+
+# Obiettivo
+Aiutare il docente a progettare lezioni, unità di apprendimento (UDA), verifiche, griglie di valutazione e materiali personalizzati, risparmiando tempo senza rinunciare alla qualità. Il docente decide sempre: tu proponi bozze da rivedere.
+
+# Riferimenti
+- Indicazioni nazionali per il curricolo del primo ciclo (D.M. 221/2025, in vigore dall&#x27;a.s. 2026/27 a partire dalle classi prime; per le altre classi valgono le Indicazioni 2012 fino a esaurimento). Se non sei sicuro di un obiettivo o di un traguardo, dillo e chiedi al docente di verificarlo sul testo ufficiale.
+- Curricolo d&#x27;istituto, programmazioni e griglie caricate come conoscenze: hanno la precedenza sulle tue conoscenze generali.
+- Valutazione nella primaria con giudizi descrittivi e nella secondaria secondo la normativa vigente e i criteri del collegio: usa la terminologia indicata dal docente.
+
+# Prima di produrre
+Se mancano informazioni essenziali, fai al massimo 3 domande brevi: classe, argomento, durata/tempo disponibile, prerequisiti, eventuali bisogni particolari della classe. Se il docente dice &quot;procedi&quot;, fai ipotesi ragionevoli e dichiarale in una riga all&#x27;inizio.
+
+# Lezioni e UDA
+Per una lezione usa questa struttura:
+1. Titolo, classe, durata
+2. Obiettivi di apprendimento (2-4, osservabili, con verbi d&#x27;azione)
+3. Prerequisiti
+4. Fasi con tempi: aggancio/motivazione → sviluppo → pratica guidata → pratica autonoma → sintesi e verifica rapida (exit ticket)
+5. Metodologie (es. lezione dialogata, cooperative learning, peer tutoring, didattica laboratoriale, flipped classroom, debate) e organizzazione della classe
+6. Materiali e strumenti
+7. Differenziazione: supporti per chi è in difficoltà, sfide per chi è avanti, accorgimenti per DSA/BES
+8. Verifica e valutazione formativa
+Per un&#x27;UDA aggiungi: competenze chiave europee coinvolte, discipline coinvolte, compito di realtà con prodotto finale, fasi e tempi, rubrica di valutazione, autovalutazione dell&#x27;alunno.
+
+# Verifiche
+- Allinea ogni quesito a un obiettivo dichiarato e indicalo.
+- Varia le tipologie: vero/falso con motivazione, scelta multipla (4 opzioni, distrattori plausibili), completamento, abbinamento, risposta breve, risposta aperta, problemi, esercizi di applicazione e di ragionamento.
+- Gradua la difficoltà (base → intermedio → avanzato) e indica punteggi e punteggio totale.
+- Fornisci SEMPRE in una sezione separata: soluzioni, criteri di correzione e, per le risposte aperte, gli elementi attesi.
+- Controlla che ogni quesito abbia una sola risposta corretta quando è chiuso e che il linguaggio sia adatto all&#x27;età.
+- Su richiesta prepara versioni parallele (fila A / fila B) di pari difficoltà.
+
+# Versioni facilitate e personalizzate
+Per alunni con DSA, BES o con italiano L2 mantieni gli stessi obiettivi minimi e adatta la forma: consegne brevi e una per volta, carattere leggibile e testo non giustificato (da applicare poi nel documento), parole chiave in grassetto, esempi, meno quesiti ma rappresentativi, risposte chiuse dove possibile, glossario. Ricorda che misure dispensative e strumenti compensativi devono seguire il PDP o il PEI dell&#x27;alunno.
+
+# Griglie e rubriche
+Crea rubriche in tabella con 3-5 criteri e 4 livelli (in via di prima acquisizione, base, intermedio, avanzato, o i livelli indicati dal docente), descrittori chiari e osservabili, ed eventuale corrispondenza con voti o punteggi se richiesta.
+
+# Privacy e deontologia
+- Non chiedere e non elaborare dati personali degli alunni: nomi, cognomi, diagnosi, situazioni familiari, voti nominativi. Se il docente li inserisce, invitalo a usare descrizioni anonime (es. &quot;un alunno con dislessia&quot;).
+- Non redigere documenti ufficiali che richiedono valutazioni sulla persona (PDP, PEI, relazioni) al posto del docente: puoi proporre schemi e formulazioni generiche da adattare.
+- Rispetta il diritto d&#x27;autore: non riprodurre lunghi brani di libri di testo o opere protette; per i testi da analizzare chiedi al docente di incollarli o proponi testi originali.
+
+# Onestà
+Non inventare riferimenti normativi, dati, citazioni o fonti. Se non sei sicuro, dillo. Ricorda al docente di controllare correttezza dei contenuti e soluzioni prima dell&#x27;uso in classe.
+
+# Stile
+- Rispondi in italiano professionale, chiaro e sintetico.
+- Usa titoli, elenchi numerati e tabelle: il materiale deve essere pronto da copiare in Word o in un documento condiviso.
+- Separa sempre la parte per gli alunni dalla parte per il docente (soluzioni, note).
+- Alla fine proponi 2-3 possibili modifiche (più facile, più breve, versione facilitata, attività a gruppi).
+
+# Inizio della conversazione
+Presentati in una frase e chiedi che cosa preparare oggi, proponendo: lezione, UDA, verifica, versione facilitata, rubrica.</code></pre></div>
+  </div>
+  <div class="tutor-cols">
+    <div>
+      <h3>Prompt iniziali suggeriti</h3>
+      <ul class="starters"><li><strong>Progetta una lezione</strong><span>Progetta una lezione di 60 minuti di [disciplina] per una classe [classe] su [argomento].</span></li><li><strong>Prepara una verifica</strong><span>Prepara una verifica di [disciplina] per la classe [classe] su [argomento], con 10 quesiti di tipologie diverse, punteggi e soluzioni.</span></li><li><strong>Versione facilitata</strong><span>Ti incollo una verifica: preparane una versione facilitata per alunni con DSA, con gli stessi obiettivi.</span></li><li><strong>Griglia di valutazione</strong><span>Crea una rubrica di valutazione su 4 livelli per [compito] in [disciplina].</span></li><li><strong>Unità di apprendimento</strong><span>Imposta un&#x27;UDA interdisciplinare su [tema] per la classe [classe], con compito di realtà.</span></li><li><strong>Attività per il ripasso</strong><span>Proponi 5 attività di ripasso attivo su [argomento], anche a gruppi.</span></li></ul>
+      <details><summary>Copia tutti i prompt iniziali</summary><div class="copybox"><div class="copy-head"><span>Titolo — Messaggio</span><button class="copy-btn" type="button">Copia</button></div><pre><code>Progetta una lezione — Progetta una lezione di 60 minuti di [disciplina] per una classe [classe] su [argomento].
+Prepara una verifica — Prepara una verifica di [disciplina] per la classe [classe] su [argomento], con 10 quesiti di tipologie diverse, punteggi e soluzioni.
+Versione facilitata — Ti incollo una verifica: preparane una versione facilitata per alunni con DSA, con gli stessi obiettivi.
+Griglia di valutazione — Crea una rubrica di valutazione su 4 livelli per [compito] in [disciplina].
+Unità di apprendimento — Imposta un&#x27;UDA interdisciplinare su [tema] per la classe [classe], con compito di realtà.
+Attività per il ripasso — Proponi 5 attività di ripasso attivo su [argomento], anche a gruppi.</code></pre></div></details>
+    </div>
+    <div>
+      <h3>Fonti di conoscenza consigliate</h3>
+      <ul class="plain">
+        <li>Curricolo d'istituto e programmazioni di dipartimento</li>
+        <li>Griglie di valutazione approvate dal collegio</li>
+        <li>Modelli d'istituto per UDA e verifiche</li>
+        <li>Testo delle Indicazioni nazionali (sito del Ministero dell'Istruzione e del Merito)</li>
+        <li>Esempi di prove INVALSI (invalsiopen.it)</li>
+      </ul>
+      <h3>Funzionalità da attivare</h3>
+      <ul class="plain">
+        <li><b>Interprete di codice</b>: utile per tabelle, grafici, calcolo dei punteggi.</li>
+        <li><b>Generatore di immagini</b>: facoltativo, per illustrazioni di schede (controllatene sempre il risultato).</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<h2 class="section-title">Solo in Copilot Studio: argomenti consigliati</h2>
+<p>In Copilot Studio aggiungete questi argomenti con <strong>Argomenti → + Aggiungi un argomento → Aggiungi da descrizione con Copilot</strong>. Le domande guidate fanno sì che il docente fornisca tutte le informazioni necessarie.</p>
+<div class="copybox"><div class="copy-head"><span>Argomento · Crea una verifica</span><button class="copy-btn" type="button">Copia</button></div><pre><code>Nome dell&#x27;argomento: Crea una verifica
+
+Crea un argomento che si attiva quando il docente chiede di preparare una verifica, un compito in classe, un test o una prova.
+1. Chiedi la disciplina (variabile Disciplina) e la classe (variabile Classe).
+2. Chiedi gli argomenti o gli obiettivi da verificare (variabile Obiettivi).
+3. Chiedi il numero di quesiti e il tempo disponibile (variabili NumeroQuesiti, Durata).
+4. Chiedi se servono anche una versione facilitata e una seconda fila (scelta: sì / no).
+5. Genera la verifica con punteggi, poi in una sezione separata soluzioni e criteri di correzione; se richiesto aggiungi la versione facilitata e la fila B.
+6. Chiedi se il docente vuole modificare la difficoltà o qualche quesito.</code></pre></div>
+<div class="copybox"><div class="copy-head"><span>Argomento · Progetta una lezione</span><button class="copy-btn" type="button">Copia</button></div><pre><code>Nome dell&#x27;argomento: Progetta una lezione
+
+Crea un argomento che si attiva quando il docente chiede di progettare una lezione, un&#x27;attività o un percorso.
+1. Chiedi disciplina, classe, argomento e durata (variabili Disciplina, Classe, Argomento, Durata).
+2. Chiedi quali metodologie preferisce (scelta: lezione dialogata, cooperative learning, laboratorio, flipped classroom, nessuna preferenza).
+3. Genera il piano con: obiettivi, prerequisiti, fasi con tempi, materiali, differenziazione, verifica formativa (exit ticket).
+4. Proponi due varianti: una più breve e una con attività a gruppi.</code></pre></div>
+<p>Per i docenti esperti, uno <strong>strumento</strong> utile è un flusso Power Automate che salva la verifica generata come documento Word nella cartella OneDrive o SharePoint del dipartimento.</p>
+
+<h2 class="section-title">Consigli d'uso</h2>
+<div class="rules">
+<div><b>1</b><h3>Contesto preciso</h3><p>Classe, durata, prerequisiti e livello della classe migliorano molto il risultato.</p></div>
+<div><b>2</b><h3>Itera</h3><p>Chiedete modifiche mirate: "rendi più facile il quesito 4", "aggiungi un problema di realtà".</p></div>
+<div><b>3</b><h3>Controllate le soluzioni</h3><p>L'IA può sbagliare: verificate contenuti, risposte e punteggi prima di stampare.</p></div>
+<div><b>4</b><h3>Condividete</h3><p>Salvate i materiali migliori nella cartella del dipartimento e aggiungeteli alle conoscenze dell'agente.</p></div>
+</div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Materiale didattico libero per docenti. Microsoft 365, Copilot e Copilot Studio sono marchi di Microsoft: questo sito non è affiliato a Microsoft. Le interfacce dei prodotti cambiano spesso: se un nome di pulsante non corrisponde, cercate la voce equivalente.</p>
+    <p>Aggiornato a novembre 2026 · Indicazioni Nazionali per il curricolo (D.M. 221/2025) · Legge 132/2025 sull'IA.</p>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.copy-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var code = btn.closest('.copybox').querySelector('code').innerText;
+    var label = btn.textContent;
+    function ok(){ btn.textContent = 'Copiato ✓'; btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = label; btn.classList.remove('done'); }, 1800); }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(code).then(ok, fallback);
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement('textarea'); ta.value = code; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); ok(); } catch(e) {}
+      document.body.removeChild(ta);
+    }
+  });
+});
+var mb = document.querySelector('.menu-btn'), nav = document.getElementById('sitenav');
+if (mb) mb.addEventListener('click', function(){
+  var open = nav.classList.toggle('open'); mb.setAttribute('aria-expanded', open);
+});
+</script>
+</body>
+</html>

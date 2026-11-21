@@ -11,14 +11,15 @@ Sito statico con guide e modelli pronti per creare **Tutor AI** con **Microsoft 
 | `guida-copilot-studio.html` | Parte 2 – Creare un tutor con Copilot Studio completo |
 | `primaria.html` | Parte 3 – 12 tutor disciplinari per la primaria |
 | `secondaria.html` | Parte 4 – 14 tutor disciplinari per la secondaria di I grado |
+| `docente.html` | Parte 5 – Assistente del docente per lezioni, UDA e verifiche |
 
 Ogni tutor ha: nome, descrizione, istruzioni complete da copiare (sotto gli 8.000 caratteri), prompt iniziali, fonti di conoscenza consigliate, argomenti per Copilot Studio e idee per la classe.
 
 ## Pubblicare su GitHub Pages
 
 1. Crea un nuovo repository su GitHub (es. `tutor-ai-scuola`), pubblico.
-2. Carica tutti i file di questa cartella mantenendo la struttura (`index.html` nella radice, la cartella `assets/`).
-   - Dal sito: **Add file → Upload files**, trascina i file e la cartella, poi **Commit changes**.
+2. Carica nella radice del repository i 6 file `.html` e `README.md` (ogni pagina contiene già il proprio stile: non servono altre cartelle).
+   - Dal sito: **Add file → Upload files**, trascina i file, poi **Commit changes**.
    - Da terminale:
      ```bash
      git init
@@ -36,7 +37,7 @@ Il file `.nojekyll` evita che GitHub elabori il sito con Jekyll.
 
 ## Modificare i contenuti
 
-Le pagine sono HTML semplice: si possono modificare direttamente con qualsiasi editor (anche dal sito di GitHub con l'icona della matita). Lo stile è in `assets/style.css`, il pulsante "Copia" in `assets/app.js`.
+Le pagine sono HTML semplice: si possono modificare direttamente con qualsiasi editor (anche dal sito di GitHub con l'icona della matita). Lo stile e il pulsante "Copia" sono inclusi in ogni pagina (tag `<style>` e `<script>`).
 
 ## Avvertenze
 
