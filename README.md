@@ -47,7 +47,7 @@ Le pagine sono HTML semplice: si possono modificare direttamente con qualsiasi e
 
 ## Licenza
 
-A cura di **Wanda Trunfio** – formatrice AI.
+A cura di **Wanda Trunfio** – formatrice AI · Contatti: [wanda.trunfio.formazione@gmail.com](mailto:wanda.trunfio.formazione@gmail.com)
 
 Contenuti rilasciati con licenza [Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it): puoi riutilizzarli e modificarli citando l'autrice, non a fini commerciali e condividendo le opere derivate con la stessa licenza.
 
