@@ -1,6 +1,6 @@
 # Tutor AI a scuola
 
-Sito statico con guide e modelli pronti per creare **Tutor AI** con **Microsoft Copilot Lite** (Agent Builder in Microsoft 365 Copilot) e **Copilot Studio**, per ogni disciplina della **scuola primaria** e della **secondaria di primo grado**.
+Sito statico con guide e modelli pronti per creare **Tutor AI** con **Microsoft Copilot Lite** (Agent Builder in Microsoft 365 Copilot) e **Copilot Studio**, per ogni disciplina della **scuola primaria**, della **secondaria di primo grado** e della **secondaria di secondo grado**.
 
 ## Contenuti
 
@@ -11,14 +11,15 @@ Sito statico con guide e modelli pronti per creare **Tutor AI** con **Microsoft 
 | `guida-copilot-studio.html` | Parte 2 – Creare un tutor con Copilot Studio completo |
 | `primaria.html` | Parte 3 – 12 tutor disciplinari per la primaria |
 | `secondaria.html` | Parte 4 – 14 tutor disciplinari per la secondaria di I grado |
-| `docente.html` | Parte 5 – Assistente del docente per lezioni, UDA e verifiche |
+| `superiore.html` | Parte 5 – 20 tutor disciplinari per la secondaria di II grado (licei, tecnici, professionali) |
+| `docente.html` | Parte 6 – Assistente del docente per lezioni, UDA e verifiche |
 
 Ogni tutor ha: nome, descrizione, istruzioni complete da copiare (sotto gli 8.000 caratteri), prompt iniziali, fonti di conoscenza consigliate, argomenti per Copilot Studio e idee per la classe.
 
 ## Pubblicare su GitHub Pages
 
 1. Crea un nuovo repository su GitHub (es. `tutor-ai-scuola`), pubblico.
-2. Carica nella radice del repository i 6 file `.html` e `README.md` (ogni pagina contiene già il proprio stile: non servono altre cartelle).
+2. Carica nella radice del repository i 7 file `.html` e `README.md` (ogni pagina contiene già il proprio stile: non servono altre cartelle).
    - Dal sito: **Add file → Upload files**, trascina i file, poi **Commit changes**.
    - Da terminale:
      ```bash
