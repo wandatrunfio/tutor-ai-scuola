@@ -47,4 +47,11 @@ Le pagine sono HTML semplice: si possono modificare direttamente con qualsiasi e
 
 ## Licenza
 
-Contenuti rilasciati con licenza [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/deed.it): puoi riutilizzarli e modificarli citando la fonte.
+A cura di **Wanda Trunfio** – formatrice AI.
+
+Contenuti rilasciati con licenza [Creative Commons Attribuzione – Non commerciale – Condividi allo stesso modo 4.0 Internazionale (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.it): puoi riutilizzarli e modificarli citando l'autrice, non a fini commerciali e condividendo le opere derivate con la stessa licenza.
+
+## Trasparenza metodologica sull'impiego dell'IA
+
+L'intelligenza artificiale generativa è stata utilizzata come strumento di supporto alla ricerca, all'organizzazione dei contenuti e alla produzione dei materiali.
+L'architettura del lavoro, la selezione delle fonti, la revisione, la verifica e la validazione dei contenuti sono state curate dall'autrice secondo un approccio Human-in-the-Loop, che mantiene il controllo editoriale e assume la responsabilità scientifica e didattica dei materiali pubblicati.
